@@ -44,8 +44,7 @@ ggmap(basemap, width = 10, height = 10) +
   #then add the hex layer, adjust alpha and binwidth
   geom_hex(aes(x=X, y=Y), data = litter.violations, alpha = 0.9, binwidth = c(0.008,0.008)) +
   #now I don't like the default colors, so I'll choose my own scale, using colorbrewer
-  scale_fill_continuous(low = "white", high = brewer.pal(n = 9, name = "Blues")[9]) +
-  geom_point(data = tmp, aes(x = x, y = y, color = metric), size = 4)
+  scale_fill_continuous(low = "white", high = brewer.pal(n = 9, name = "Blues")[9])
 
 #we need to play with the breaks since the default is not informative enough
 #we'll also make it a facetted map. but this will take longer to generate since there are actually 15 categories
@@ -63,7 +62,8 @@ ggmap(basemap, width = 10, height = 10) +
 #let's summarize and make a line chart over time by violation type
 
 #first create a new variable that is the date with class Date instead of character
-litter.violations[, date := as.Date(Date_Added)]
+#litter.violations[, date := as.Date(Date_Added)]
+litter.violations[, date := as.Date(gsub(pattern = "/", "-", as.character(Date_Added)))]
 
 #also get the weekday. why? b/c what does date added mean? if we don't see any on weekends, they I wonder
 #if date_added is more for record keeping.
