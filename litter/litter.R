@@ -120,7 +120,7 @@ count.by.topic <- arrange(count.by.topic, week_date)
 decomp.litter    <- stl(ts(count.by.topic[week_date > as.Date("2011-01-01") & Topic == " Litter"]$N)) #ugh there is a space in Litter
 decomp.dumpster  <- stl(ts(count.by.topic[week_date > as.Date("2011-01-01") & Topic == "Dumpster"]$N))
 decomp.recycling <- stl(ts(count.by.topic[week_date > as.Date("2011-01-01") & Topic == "Recycling"]$N))
-decomp.vehicle   <- stl(ts(count.by.topic[week_date > as.Date("2011-01-01") & Topic == "Vehicle"]$N))
+decomp.vehicle   <- stl(ts(count.by.topic[week_date > as.Date("2011-01-01") & Topic == "Vehcile"]$N))
 
 #aaannnnddddd they're all aperiodic. boring!
 
