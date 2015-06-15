@@ -9,6 +9,9 @@ library(jpeg) #for adding a background image
 library(grid) # for adding a background image
 library(extrafont) #use custom fonts
 
+#load blank theme for ggplot
+source("theme_blank.R")
+
 #change this file path to wherever your fonts are located
 #your downloaded fonts may not be in the same place as your
 #system fonts (the ones that came w/ your computer)
